@@ -37,3 +37,7 @@ jwt:
    - /user/**
    - /admin/**
   excludePathPatterns:
+    - /sso/**
+  resourceHandlers:
+    /static/**: classpath:/static/
+    /oss/**: classpath:/oss/

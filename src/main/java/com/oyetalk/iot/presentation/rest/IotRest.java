@@ -1,6 +1,6 @@
 package com.oyetalk.iot.presentation.rest;
 
-import com.cyber.application.controller.JWTTokenController;
+import com.cyber.application.controller.AuthingTokenController;
 import com.cyber.domain.entity.DataResponse;
 import com.cyber.domain.entity.IdRequest;
 import com.cyber.domain.entity.PagingData;
@@ -20,7 +20,7 @@ import java.util.Date;
 
 @RestController
 @Scope(WebApplicationContext.SCOPE_REQUEST)
-public class IotRest extends JWTTokenController {
+public class IotRest extends AuthingTokenController {
 
 	@Autowired
 	IotService iotService;
