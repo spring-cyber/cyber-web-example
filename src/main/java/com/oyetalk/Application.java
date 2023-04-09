@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@ComponentScan(basePackages = {"com.cyber.*,com.oyetalk.*"})
+@ComponentScan(basePackages = {"com.cyber.*","com.oyetalk.*"})
 @SpringBootApplication
 public class Application {
 
