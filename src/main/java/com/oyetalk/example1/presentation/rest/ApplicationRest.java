@@ -4,8 +4,8 @@ import com.cyber.domain.entity.DataResponse;
 import com.cyber.domain.entity.IdRequest;
 import com.cyber.domain.entity.PagingData;
 import com.cyber.domain.entity.Response;
-import com.oyetalk.example1.domain.entity.Application;
 import com.oyetalk.example1.application.ApplicationService;
+import com.oyetalk.example1.domain.entity.Application;
 import com.oyetalk.example1.domain.request.ApplicationRequest;
 import com.oyetalk.example1.domain.request.CreateApplicationRequest;
 import com.oyetalk.example1.domain.request.UpdateApplicationRequest;
@@ -16,6 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @Scope(WebApplicationContext.SCOPE_REQUEST)
@@ -26,9 +27,9 @@ public class ApplicationRest {
 
 	@GetMapping("/application/search")
 	public Response searchApplication(@Valid ApplicationRequest request) {
-		DataResponse<PagingData<Application>> response = new DataResponse<PagingData<Application>>();
+		DataResponse<PagingData<List<Application>>> response = new DataResponse<>();
         Application  application = request.toEvent();
-		PagingData<Application> applicationPage = applicationService.selectPage(application);
+		PagingData<List<Application>> applicationPage = applicationService.selectPage(application);
 		response.setData(applicationPage);
 		return response;
 	}
