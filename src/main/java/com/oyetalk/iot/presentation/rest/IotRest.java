@@ -17,7 +17,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.validation.Valid;
 import java.util.Date;
-import java.util.List;
 
 @RestController
 @Scope(WebApplicationContext.SCOPE_REQUEST)
@@ -28,9 +27,9 @@ public class IotRest extends AuthingTokenController {
 
 	@GetMapping("/iot/search")
 	public Response searchIot(@Valid IotRequest request) {
-		DataResponse<PagingData<List<Iot>>> response = new DataResponse<>();
+		DataResponse<PagingData<Iot>> response = new DataResponse<PagingData<Iot>>();
         Iot  iot = request.toEvent();
-		PagingData<List<Iot>> iotPage = iotService.selectPage(iot);
+		PagingData<Iot> iotPage = iotService.selectPage(iot);
 		response.setData(iotPage);
 		return response;
 	}
